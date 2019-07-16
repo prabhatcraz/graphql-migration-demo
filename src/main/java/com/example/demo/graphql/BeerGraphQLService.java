@@ -15,10 +15,7 @@ import java.util.List;
 public class BeerGraphQLService {
     private final BeerService beerService;
 
-    @GraphQLMutation(name = "create")
-    public String create(final Beer beer) {
-        return beerService.create(beer);
-    }
+
 
     @GraphQLQuery(name = "getAll")
     public List<Beer> getAll() {
@@ -28,5 +25,20 @@ public class BeerGraphQLService {
     @GraphQLQuery(name = "get")
     public Beer getABeer(@GraphQLArgument(name = "id") final String id) {
         return beerService.getABeer(id);
+    }
+
+    @GraphQLMutation(name = "create")
+    public Beer create(final Beer beer) {
+        return beerService.create(beer);
+    }
+
+    @GraphQLMutation(name = "delete")
+    public String delete(final String id) {
+        return beerService.delete(id);
+    }
+
+    @GraphQLMutation(name = "update")
+    public Beer update(final String id, final Beer beer) {
+        return beerService.update(id, beer);
     }
 }
