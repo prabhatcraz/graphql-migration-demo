@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 curl -s -X POST -H "Content-type: application/json" http://localhost:8080/beer -d '
     {
         "name"  : "Heineken",
