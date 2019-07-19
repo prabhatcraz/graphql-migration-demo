@@ -56,6 +56,17 @@ curl -s -X POST -H "Content-type: application/json" http://localhost:8080/data  
 ' | jq .
 
 curl -s -X POST -H "Content-type: application/json" http://localhost:8080/data  -d '
+    {
+        get(id:"1") {
+            id
+            name
+            type
+            price
+        }
+    }
+' | jq .
+
+curl -s -X POST -H "Content-type: application/json" http://localhost:8080/data  -d '
     mutation {
     	create(
     	    beer: {
